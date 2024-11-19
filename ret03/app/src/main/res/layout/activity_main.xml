@@ -8,16 +8,24 @@
     android:background="@color/purple_200">
 
     <!-- Título -->
+
+    <!-- Tablero -->
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="Triqui"
+        android:textSize="44sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textViewTurn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:textStyle="bold" />
 
-    <!-- Tablero -->
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
@@ -58,6 +66,68 @@
             style="@style/TicTacToeButton"/>
     </GridLayout>
 
+    <GridLayout
+        android:id="@+id/gridLayoutPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:rowCount="6"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/textViewPoint1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="Jugador:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textViewPoint2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="5dp"
+            android:text="0"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textViewPoint3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Empate:"
+            android:layout_marginBottom="20dp"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textViewPoint4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="5dp"
+            android:text="0"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textViewPoint5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="Computador:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textViewPoint6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="5dp"
+            android:text="0"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </GridLayout>
     <!-- Botón para reiniciar el juego -->
     <Button
         android:id="@+id/restartButton"
