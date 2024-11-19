@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@color/purple_200">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Triqui"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Tablero -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:layout_gravity="center">
+
+        <!-- Casillas del tablero (Botones) -->
+        <Button
+            android:id="@+id/button1"
+            style="@style/TicTacToeButton"
+            />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/TicTacToeButton"/>
+        <Button
+            android:id="@+id/button3"
+            style="@style/TicTacToeButton"/>
+        <Button
+            android:id="@+id/button4"
+            style="@style/TicTacToeButton"/>
+        <Button
+            android:id="@+id/button5"
+            style="@style/TicTacToeButton"/>
+        <Button
+            android:id="@+id/button6"
+            style="@style/TicTacToeButton"/>
+        <Button
+            android:id="@+id/button7"
+            style="@style/TicTacToeButton"/>
+        <Button
+            android:id="@+id/button8"
+            style="@style/TicTacToeButton"/>
+        <Button
+            android:id="@+id/button9"
+            style="@style/TicTacToeButton"/>
+    </GridLayout>
+
+    <!-- Botón para reiniciar el juego -->
+    <Button
+        android:id="@+id/restartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
