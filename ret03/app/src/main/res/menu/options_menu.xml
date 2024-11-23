@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_new_game"
+        android:title="New Game"
+        android:icon="@drawable/plus_box" />
+    <item android:id="@+id/menu_difficulty"
+        android:title="Difficulty : Expert"
+        android:icon="@drawable/ladder" />
+    <item android:id="@+id/menu_quit"
+        android:title="Quit"
+        android:icon="@drawable/exit_to_app" />
+
+</menu>
