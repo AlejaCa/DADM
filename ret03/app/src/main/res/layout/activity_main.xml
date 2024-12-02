@@ -7,10 +7,20 @@
     android:gravity="center"
     android:background="@color/purple_200">
 
-
     <!-- Título -->
 
     <!-- Tablero -->
+
+    <Button
+        android:id="@+id/muteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginRight="110dp"
+        android:text="Mute"
+        android:textSize="15sp"
+        />
+
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
@@ -21,6 +31,13 @@
         android:textStyle="bold" />
 
 
+    <com.example.triqui.BoardView
+        android:id="@+id/board"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="5dp"/>
+
+
     <TextView
         android:id="@+id/textViewTurn"
         android:layout_width="wrap_content"
@@ -29,7 +46,7 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <GridLayout
+    <!-- <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +54,6 @@
         android:rowCount="3"
         android:layout_gravity="center">
 
-        <!-- Casillas del tablero (Botones) -->
         <Button
             android:id="@+id/button1"
             style="@style/TicTacToeButton"
@@ -67,7 +83,9 @@
         <Button
             android:id="@+id/button9"
             style="@style/TicTacToeButton"/>
-    </GridLayout>
+    </GridLayout>  -->
+
+
 
     <GridLayout
         android:id="@+id/gridLayoutPoints"
