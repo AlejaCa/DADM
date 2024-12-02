@@ -56,7 +56,14 @@ class TicTacToeGame {
                     }
                 }
             }
-            currentPlayer = HUMAN_PLAYER // After computer's move, switch to player
+            if (checkWinner() == "") {
+                if (isBoardFull()) {
+                    return move
+                }
+                // Switch to the next player after making a move
+                currentPlayer = if (currentPlayer == HUMAN_PLAYER) COMPUTER_PLAYER else HUMAN_PLAYER
+            }
+             // After computer's move, switch to player
             return move
         }
         return -1
@@ -188,7 +195,7 @@ class TicTacToeGame {
                     col = index
                 }
             }
-            currentPlayer = HUMAN_PLAYER
+            //currentPlayer = HUMAN_PLAYER
             return 3*row +col
         }
         return -1
@@ -230,7 +237,7 @@ class TicTacToeGame {
                     col = index
                 }
             }
-            currentPlayer = HUMAN_PLAYER
+            //currentPlayer = HUMAN_PLAYER
             return 3*row +col
         }
         return -1

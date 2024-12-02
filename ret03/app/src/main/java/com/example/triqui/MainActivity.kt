@@ -241,12 +241,8 @@ class MainActivity : ComponentActivity() {
             textViewTurn.text ="Computers turn."
 
             Handler(mainLooper).postDelayed({
-                ticTacToeGame.computerMove()
-                computerMediaPlayer.start()
-
-                boardView.invalidate() // Redraw the board after the move
-                textViewTurn.text="Your turn."
-            }, 800)
+                makeComputerMove()
+            }, 500)
 
         }
     }
