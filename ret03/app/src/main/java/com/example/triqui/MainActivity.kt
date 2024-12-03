@@ -34,6 +34,7 @@ class MainActivity : ComponentActivity() {
     private var gameOver: Boolean = false
     private var isMuted = false // To track mute status
     private lateinit var muteButton: Button
+    private var isPlayerTurn = true
 
     enum class DifficultyLevel {
         Easy, Harder, Expert
@@ -230,6 +231,7 @@ class MainActivity : ComponentActivity() {
     private fun restartGame() {
         ticTacToeGame.restartGame()
         boardView.invalidate()
+        isPlayerTurn = false
         gameOver=false
         // Reset the board
 
@@ -237,19 +239,20 @@ class MainActivity : ComponentActivity() {
         restartButton.isEnabled = false
         if(ticTacToeGame.currentPlayer=="X"){
             textViewTurn.text="Your turn."
+            isPlayerTurn = true
         }else{
             textViewTurn.text ="Computers turn."
 
             Handler(mainLooper).postDelayed({
                 makeComputerMove()
-            }, 500)
+            }, 1000)
 
         }
     }
     private class mTouchListener(val game: MainActivity) : OnTouchListener {
         @SuppressLint("ClickableViewAccessibility")
         override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-            if (game.gameOver || game.ticTacToeGame.currentPlayer != "X") return false
+            if (game.gameOver || !game.isPlayerTurn) return false
 
             val col = event?.x?.toInt()?.div(game.boardView.getBoardCellWidth())
             val row = event?.y?.toInt()?.div(game.boardView.getBoardCellHeight())
@@ -265,9 +268,10 @@ class MainActivity : ComponentActivity() {
                     if (winner == "") {
                         // Proceed to computer's turn after human move
                         game.textViewTurn.text = "Computer's turn."
+                        game.isPlayerTurn = false
                         Handler(game.mainLooper).postDelayed({
                             game.makeComputerMove()
-                        }, 500)
+                        }, 1000)
                     } else {
                         game.handleGameOver(winner)
                     }
@@ -302,14 +306,17 @@ class MainActivity : ComponentActivity() {
             else -> {
                 if (ticTacToeGame.isBoardFull()) {
                     showTie()
+                    isPlayerTurn = false
                 } else {
                     textViewTurn.text = "Your turn."
+                    isPlayerTurn = true
                 }
             }
         }
     }
     private fun handleGameOver(winner: String) {
         gameOver = true
+        isPlayerTurn = false
         when (winner) {
             "X" -> {
                 textViewTurn.text = "You won!"

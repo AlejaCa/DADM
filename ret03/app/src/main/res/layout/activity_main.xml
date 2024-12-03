@@ -19,6 +19,7 @@
         android:layout_marginRight="110dp"
         android:text="Mute"
         android:textSize="15sp"
+        android:background="@drawable/rounded_corner"
         />
 
     <TextView
@@ -156,5 +157,6 @@
         android:layout_height="wrap_content"
         android:text="Restart"
         android:textSize="16sp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner"/>
 </LinearLayout>
