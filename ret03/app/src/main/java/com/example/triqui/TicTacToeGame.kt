@@ -2,6 +2,7 @@ package com.example.triqui
 
 import android.util.Log
 import androidx.compose.animation.core.rememberTransition
+import java.util.stream.Stream
 import kotlin.random.Random
 
 class TicTacToeGame {
@@ -242,12 +243,35 @@ class TicTacToeGame {
         }
         return -1
     }
-    fun setDifficulty(difficulty: DifficultyLevel) {
+    fun setDifficulty( difficulty: String) {
         // Update the AI difficulty level
-        mDifficultyLevel = difficulty
+        if(difficulty == "Easy"){
+            mDifficultyLevel = DifficultyLevel.Easy
+        }else if(difficulty== "Harder") {
+            mDifficultyLevel = DifficultyLevel.Harder
+        }else mDifficultyLevel = DifficultyLevel.Expert
 
     }
 
+    fun getBoardState(): Array<String> {
+        val boardstate =Array(9) { "" }
+        for (i in 0..2){
+            boardstate[i]=board[0][i]
+            boardstate[i+3]=board[1][i]
+            boardstate[i+6]=board[2][i]
+        }
+        return boardstate
+    }
+
+    fun setBoardState(stringArray: Array<String>?) {
+        if (stringArray != null) {
+            for(i in 0..2){
+                for(j in 0..2){
+                    board[i][j]=stringArray[3*i+j]
+                }
+            }
+        }
+    }
 
 
 }

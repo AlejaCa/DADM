@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="16dp"
-    android:gravity="center"
+
     android:background="@color/purple_200">
 
     <!-- Título -->
@@ -14,9 +14,9 @@
     <Button
         android:id="@+id/muteButton"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="-50dp"
-        android:layout_marginRight="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
         android:text="Mute"
         android:textSize="15sp"
         android:background="@drawable/rounded_corner"
@@ -27,74 +27,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="80dp"
         android:text="Triqui"
         android:textSize="44sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_above="@id/gridLayoutPoints"
+        android:layout_toRightOf="@id/board"
+        />
 
 
     <com.example.triqui.BoardView
         android:id="@+id/board"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/muteButton"
+        />
 
 
     <TextView
         android:id="@+id/textViewTurn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:textSize="24sp"
+        android:layout_below="@id/gridLayoutPoints"
+        android:layout_toRightOf="@id/board"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
-
-    <!-- <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:rowCount="3"
-        android:layout_gravity="center">
-
-        <Button
-            android:id="@+id/button1"
-            style="@style/TicTacToeButton"
-            />
-
-        <Button
-            android:id="@+id/button2"
-            style="@style/TicTacToeButton"/>
-        <Button
-            android:id="@+id/button3"
-            style="@style/TicTacToeButton"/>
-        <Button
-            android:id="@+id/button4"
-            style="@style/TicTacToeButton"/>
-        <Button
-            android:id="@+id/button5"
-            style="@style/TicTacToeButton"/>
-        <Button
-            android:id="@+id/button6"
-            style="@style/TicTacToeButton"/>
-        <Button
-            android:id="@+id/button7"
-            style="@style/TicTacToeButton"/>
-        <Button
-            android:id="@+id/button8"
-            style="@style/TicTacToeButton"/>
-        <Button
-            android:id="@+id/button9"
-            style="@style/TicTacToeButton"/>
-    </GridLayout>  -->
-
 
 
     <GridLayout
         android:id="@+id/gridLayoutPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:rowCount="6"
-        android:layout_gravity="center">
+        android:layout_marginLeft="70dp"
+        android:rowCount="1"
+        android:columnCount="2"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/board">
         <TextView
             android:id="@+id/textViewPoint1"
             android:layout_width="wrap_content"
@@ -109,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="50dp"
             android:text="0"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -127,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="50dp"
             android:text="0"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -145,11 +119,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="50dp"
             android:text="0"
             android:textSize="14sp"
             android:textStyle="bold" />
     </GridLayout>
-    <!-- Botón para reiniciar el juego -->
 
-</LinearLayout>
+</RelativeLayout>

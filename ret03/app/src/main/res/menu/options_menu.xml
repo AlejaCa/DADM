@@ -6,8 +6,8 @@
     <item android:id="@+id/menu_difficulty"
         android:title="Difficulty : Expert"
         android:icon="@drawable/ladder" />
-    <item android:id="@+id/menu_quit"
-        android:title="Quit"
+    <item android:id="@+id/menu_reset"
+        android:title="Reset Scores"
         android:icon="@drawable/exit_to_app" />
 
 </menu>
