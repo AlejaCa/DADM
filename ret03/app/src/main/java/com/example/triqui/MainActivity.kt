@@ -2,6 +2,7 @@ package com.example.triqui
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -19,7 +20,7 @@ import androidx.activity.ComponentActivity
 import com.example.triqui.TicTacToeGame.DifficultyLevel.Easy
 import com.example.triqui.TicTacToeGame.DifficultyLevel.Expert
 import com.example.triqui.TicTacToeGame.DifficultyLevel.Harder
-
+import com.example.triqui.ui.OnlineGameActivity
 
 class MainActivity : ComponentActivity() {
 
@@ -63,7 +64,7 @@ class MainActivity : ComponentActivity() {
         boardView = findViewById(R.id.board) // Ensure this is done after setContentView
 
         Log.d("MainActivity", "Board View Initialized: $boardView")
-        boardView.initialize() //
+        boardView.initialize("Solo") //
         boardView.setGame(ticTacToeGame)
         boardView.setOnTouchListener(mTouchListener(this))
 
@@ -228,6 +229,10 @@ class MainActivity : ComponentActivity() {
                 updateDifficultyMenuItem()// Show difficulty options
                 true
             }
+            R.id.online_game ->{
+                navigateToOnlinePlay()
+                true
+            }
             R.id.menu_reset -> {
                 jugador = 0
                 empate = 0
@@ -239,6 +244,11 @@ class MainActivity : ComponentActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun navigateToOnlinePlay() {
+        val intent = Intent(this, OnlineGameActivity::class.java)
+        startActivity(intent)
     }
 
     private fun updateDifficultyMenuItem() {

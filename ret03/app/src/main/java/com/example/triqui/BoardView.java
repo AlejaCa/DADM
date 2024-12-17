@@ -16,29 +16,32 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class BoardView extends View {
     public static final int GRID_WIDTH = 6;
     private Bitmap mHumanBitmap;
     private Bitmap mComputerBitmap;
     private Paint mPaint;
-
+    private String gameType;
     public BoardView(Context context) {
         super(context);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG); // Initialize Paint
-        initialize();
+        initialize(gameType);
     }
 
     public BoardView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG); // Initialize Paint
-        initialize();
+        initialize(gameType);
     }
 
     public BoardView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG); // Initialize Paint
-        initialize();
+        initialize(gameType);
     }
 
     @Override
@@ -65,8 +68,6 @@ public class BoardView extends View {
         canvas.drawLine(0, cellHeight, boardWidth, cellHeight, mPaint);
         canvas.drawLine(0, cellHeight * 2, boardWidth, cellHeight * 2, mPaint);
 
-        @SuppressLint("DrawAllocation") Bitmap scaledHumanBitmap = Bitmap.createScaledBitmap(mHumanBitmap, cellWidth, cellHeight, false);
-        @SuppressLint("DrawAllocation") Bitmap scaledComputerBitmap = Bitmap.createScaledBitmap(mComputerBitmap, cellWidth, cellHeight, false);
 
 
         // Draw all the X and O images
@@ -78,31 +79,58 @@ public class BoardView extends View {
             int top = row * cellHeight;
             int right = left + cellWidth;
             int bottom = top + cellHeight;
-            if (mGame == null) {
-                Log.e("BoardView", "Game is null in onDraw.");
-                return;
-            }
-            String[][] board =mGame.getBoard();
-            String cellValue = board[row][col];
-            if (mGame != null && cellValue.equals("X")) {
+            if(gameType.equals("Solo")){
 
-                canvas.drawBitmap(scaledHumanBitmap,
-                        null, // src
-                        new Rect(left, top, right, bottom), // dest
-                        null);
+                if (mGame == null) {
+                    Log.e("BoardView", "Game is null in onDraw.");
+                    return;
+                }
+                String[][] board =mGame.getBoard();
+                String cellValue = board[row][col];
+                if (mGame != null && cellValue.equals("X")) {
 
-            }
-            else if (mGame != null && cellValue.equals("O")) {
-                canvas.drawBitmap(scaledComputerBitmap,
-                        null, // src
-                        new Rect(left, top, right, bottom), // dest
-                        null);
+                    canvas.drawBitmap(mHumanBitmap,
+                            null, // src
+                            new Rect(left, top, right, bottom), // dest
+                            null);
 
+                }
+                else if (mGame != null && cellValue.equals("O")) {
+                    canvas.drawBitmap(mComputerBitmap,
+                            null, // src
+                            new Rect(left, top, right, bottom), // dest
+                            null);
+
+                }
+
+            } else if (gameType.equals("online")) {
+                if (mboard.isEmpty()) {
+                    mboard = new ArrayList<>(9);
+                    for (int a = 0; a < 9; a++) {
+                        mboard.add("-");
+                    }
+                }
+                int position = row * 3 + col; // Map (row, col) to list index
+                String cellVal = mboard.get(position);
+
+                if (cellVal.equals("X")) {
+                    canvas.drawBitmap(mHumanBitmap,
+                            null, // src
+                            new Rect(left, top, right, bottom), // dest
+                            null);
+                } else if ( cellVal.equals("O")) {
+                    canvas.drawBitmap(mComputerBitmap,
+                            null, // src
+                            new Rect(left, top, right, bottom), // dest
+                            null);
+                }
             }
+
+
         }
     }
 
-    public void initialize() {
+    public void initialize(String Type) {
         mHumanBitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.x_img);
         mComputerBitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.o_img);
         if (mHumanBitmap == null) {
@@ -111,10 +139,20 @@ public class BoardView extends View {
         if (mComputerBitmap == null) {
             Log.e("BoardView", "Computer bitmap (O) failed to load.");
         }
+        gameType  =Type;
+        List<String> mboard = new ArrayList<>(9);
+        for (int i = 0; i < 9; i++) {
+            mboard.add("");
+        }
+
     }
     private TicTacToeGame mGame;
     public void setGame(TicTacToeGame game) {
         mGame = game;
+    }
+    private List<String> mboard;
+    public void setBoard(List<String> board) {
+        mboard = board;
     }
     public int getBoardCellWidth() {
         return getWidth() / 3;
