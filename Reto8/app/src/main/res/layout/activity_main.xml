@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/viewFlipper"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<!-- Add User View -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la Empresa"/>
+    <EditText
+        android:id="@+id/editTextURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="URL de la Empresa"/>
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Teléfono de contacto"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email de contacto"/>
+    <EditText
+        android:id="@+id/editTextPyS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Productos y servicios"/>
+
+    <LinearLayout
+        android:id="@+id/classCategoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clasificación de la empresa: "></TextView>
+        <CheckBox
+            android:id="@+id/checkBoxConsultoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consultoría" />
+
+        <CheckBox
+            android:id="@+id/checkBoxDesarrollo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desarrollo a la Medida" />
+
+        <CheckBox
+            android:id="@+id/checkBoxFabrica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fábrica de Software" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"/>
+
+</LinearLayout>
+
+<!-- Search User View -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextSearchName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Buscar por Nombre"/>
+
+    <LinearLayout
+        android:id="@+id/searchCategoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clasificación de la empresa: "></TextView>
+        <CheckBox
+            android:id="@+id/checkBoxConsultoriaSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consultoría" />
+
+        <CheckBox
+            android:id="@+id/checkBoxDesarrolloSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desarrollo a la Medida" />
+
+        <CheckBox
+            android:id="@+id/checkBoxFabricaSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fábrica de Software" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"/>
+
+    <TextView
+        android:id="@+id/textViewSearchResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>
+    <!-- Update / Delete User View   -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editTextNameUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de la Empresa"/>
+        <EditText
+            android:id="@+id/editTextURLUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="URL de la Empresa"/>
+        <EditText
+            android:id="@+id/editTextPhoneUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono de contacto"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/editTextEmailUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email de contacto"/>
+        <EditText
+            android:id="@+id/editTextPySUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Productos y servicios"/>
+        <LinearLayout
+            android:id="@+id/classCategoryLayoutUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clasificación de la empresa: "></TextView>
+            <CheckBox
+                android:id="@+id/checkBoxConsultoriaUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consultoría" />
+
+            <CheckBox
+                android:id="@+id/checkBoxDesarrolloUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desarrollo a la Medida" />
+
+            <CheckBox
+                android:id="@+id/checkBoxFabricaUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fábrica de Software" />
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/editTextID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID (para Actualizar/Borrar)"
+            android:inputType="number"/>
+
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Actualizar"/>
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Borrar"/>
+
+    </LinearLayout>
+
+</ViewFlipper>
